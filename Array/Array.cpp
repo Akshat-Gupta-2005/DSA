@@ -237,4 +237,3 @@ public:
         return xorr;
     }
 };
- 
