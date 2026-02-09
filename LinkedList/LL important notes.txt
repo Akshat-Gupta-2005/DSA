@@ -1,0 +1,13 @@
+node is deleted after it is segregated
+    Node1 to Node2
+    Node2 to Node1
+    remove both and then delete
+
+
+whenever you need to create a new linked list, prefer to use dummy node
+
+new approach of fast and slow pointer:
+    remove nth node from last
+    find middle of ll
+    pallindrome check
+    loop or cycle

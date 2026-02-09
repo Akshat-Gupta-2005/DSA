@@ -1,0 +1,158 @@
+Maps:
+    C++ Standard Library provides several types of maps, which are associative containers that store elements formed by a combination of a key value and a mapped value. Each key value is unique and is used to identify its mapped value.
+    The primary types of maps in C++ are:
+    std::map:
+    An ordered associative container that stores key-value pairs.
+    Elements are ordered by their keys, typically implemented using a self-balancing binary search tree (like a Red-Black tree).
+    Keys are unique; each key can only be associated with one value.
+    Provides logarithmic time complexity for insertion, deletion, and lookup operations.
+    C++
+
+        #include <map>
+        #include <string>
+
+        std::map<std::string, int> studentGrades;
+        studentGrades["Alice"] = 95;
+        studentGrades["Bob"] = 88;
+    std::unordered_map:
+    An unordered associative container that stores key-value pairs.
+    Elements are not ordered by their keys; instead, they are organized into buckets based on hash values of the keys.
+    Keys are unique.
+    Provides average constant-time complexity for insertion, deletion, and lookup, but worst-case linear time complexity (due to hash collisions).
+    C++
+
+        #include <unordered_map>
+        #include <string>
+
+        std::unordered_map<std::string, int> userSessions;
+        userSessions["user123"] = 1001;
+        userSessions["user456"] = 1002;
+    std::multimap:
+    Similar to std::map, it is an ordered associative container.
+    The key difference is that it allows multiple elements to have the same key.
+    Elements are ordered by their keys.
+    C++
+
+        #include <map>
+        #include <string>
+
+        std::multimap<std::string, std::string> contactNumbers;
+        contactNumbers.insert({"John Doe", "123-456-7890"});
+        contactNumbers.insert({"John Doe", "987-654-3210"});
+    std::unordered_multimap:
+    Similar to std::unordered_map, it is an unordered associative container.
+    Allows multiple elements to have the same key.
+    Elements are not ordered by their keys.
+    C++
+
+        #include <unordered_map>
+        #include <string>
+
+        std::unordered_multimap<std::string, std::string> blogPostTags;
+        blogPostTags.insert({"C++", "Introduction to C++"});
+        blogPostTags.insert({"C++", "Advanced C++ Concepts"});
+    In summary, the choice between these map types depends on whether you require elements to be ordered by keys (std::map, std::multimap) and whether you need to allow duplicate keys (std::multimap, std::unordered_multimap). std::unordered_map and std::unordered_multimap generally offer faster average-case performance due to their hash-table implementation.
+
+
+
+
+        To use maps in C++, follow these steps: include the <map> header.
+    C++
+
+        #include <map>
+    declare a map.
+    The general syntax for declaring a map is std::map<KeyType, ValueType> mapName;. 
+    KeyType: The data type of the keys.
+    ValueType: The data type of the values associated with the keys.
+    mapName: The name you give to your map instance.
+    Example:
+    C++
+
+        std::map<std::string, int> ages; // Map with string keys and int values
+        std::map<int, double> scores;   // Map with int keys and double values
+    Initialize and Insert Elements.
+    You can initialize a map at declaration or insert elements later. Initialization at declaration.
+    C++
+
+            std::map<std::string, int> people = { {"John", 30}, {"Jane", 25}, {"Mike", 35} };
+    Inserting elements using square brackets ([]).
+    C++
+
+            std::map<std::string, int> ages;
+            ages["Alice"] = 28;
+            ages["Bob"] = 32;
+    Inserting elements using insert() function.
+    C++
+
+            std::map<std::string, int> ages;
+            ages.insert({"Charlie", 40});
+            ages.insert(std::make_pair("Diana", 22)); // Using std::make_pair
+    Access Elements.
+    Access elements using their keys inside square brackets.
+    C++
+
+        std::cout << people["John"] << std::endl; // Output: 30
+    If you try to access a non-existent key using [], it will insert that key with a default-constructed value. Iterate Through a Map.
+    You can iterate through a map using a range-based for loop or iterators.
+    Range-based for loop (C++11 and later):
+    C++
+
+            for (const auto& pair : people) {
+                std::cout << pair.first << ": " << pair.second << std::endl;
+            }
+    using iterators.
+    C++
+
+            for (auto it = people.begin(); it != people.end(); ++it) {
+                std::cout << it->first << ": " << it->second << std::endl;
+            }
+    Find Elements.
+    Use the find() method to search for a key. It returns an iterator to the element if found, or mapName.end() if not found.
+    C++
+
+        auto it = people.find("Jane");
+        if (it != people.end()) {
+            std::cout << "Jane's age is: " << it->second << std::endl;
+        } else {
+            std::cout << "Jane not found." << std::endl;
+        }
+    Remove Elements.
+    Use the erase() method to remove elements by key or by iterator.
+    C++
+
+        people.erase("Mike"); // Remove by key
+        people.erase(it);     // Remove by iterator
+        people.clear();       // Remove all elements
+
+
+SORT use
+MAP types and use
+
+The C++ Standard Template Library (STL) offers a rich set of components frequently used in Data Structures and Algorithms (DSA) for efficient problem-solving. These components can be broadly categorized into Containers, Iterators, and Algorithms.
+1. Containers: These are classes that store collections of objects, representing various data structures.
+Sequence Containers:
+std::vector: Dynamically sized arrays, offering efficient random access and fast appends/removals at the end. Widely used for general-purpose storage.
+std::list: Doubly-linked lists, providing efficient insertions and deletions anywhere in the list but slower random access.
+std::deque: Double-ended queues, allowing efficient insertions and deletions at both ends.
+std::array: Fixed-size arrays with compile-time size, offering performance similar to C-style arrays but with bounds checking and other benefits.
+Associative Containers:
+std::set: Stores unique elements in a sorted order, based on a key. Efficient for searching, insertion, and deletion.
+std::map: Stores key-value pairs in a sorted order based on the key. Efficient for lookup, insertion, and deletion by key.
+std::multiset: Similar to std::set but allows duplicate elements.
+std::multimap: Similar to std::map but allows duplicate keys.
+Unordered Associative Containers:
+std::unordered_set: Stores unique elements in an unsorted manner using hash tables, providing average O(1) complexity for most operations.
+std::unordered_map: Stores key-value pairs in an unsorted manner using hash tables, providing average O(1) complexity for most operations.
+std::unordered_multiset: Similar to std::unordered_set but allows duplicate elements.
+std::unordered_multimap: Similar to std::unordered_map but allows duplicate keys.
+Container Adapters: These provide a specific interface to underlying containers.
+std::stack: LIFO (Last-In, First-Out) data structure.
+std::queue: FIFO (First-In, First-Out) data structure.
+std::priority_queue: A queue where elements are retrieved based on their priority.
+2. Iterators: These act as generalized pointers, providing a way to access elements within containers. They enable traversal and manipulation of container elements in a generic manner, allowing algorithms to work with different container types.
+3. Algorithms: These are a collection of generic functions that operate on ranges of elements defined by iterators. They provide common operations like:
+Sorting: std::sort, std::stable_sort, std::partial_sort.
+Searching: std::find, std::binary_search, std::lower_bound, std::upper_bound.
+Manipulation: std::copy, std::fill, std::remove, std::unique, std::reverse.
+Numeric Operations: std::accumulate, std::iota.
+These STL components significantly streamline DSA implementations in C++ by providing optimized, ready-to-use data structures and algorithms, allowing developers to focus on problem-solving logic rather than low-level implementations.

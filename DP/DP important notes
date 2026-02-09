@@ -1,0 +1,45 @@
+======= dp notes =======
+
+• Those who cannot repeat the past are condemned to repeat it
+
+• Approaches
+    Memoization -> Top-Down
+    Tabulation -> Bottom-up
+    Space Optimizastion
+
+• Recursion -> Memoization -> Tabulation -> Space Optimizastion
+
+• Recursion
+    - whenever try all possible ways or count or best way problems
+    - (Shortcut)
+        1 try to represent problem in terms of indexs and write base case
+        2 do all possible stuff on that indexs
+        3 sum of all stuffs -> count all ways
+          min(of all stuff) -> find min
+
+• Memoization
+    - tend to store the value of sub problems in some map or table or array.
+    - 1 declare dp array and pass as parameters
+      2 update dp array with computed value at last
+      3 check for dp array for pre existing values
+    - TC -> O(n)
+    - SC -> O(n) + O(n) (Dp array + Recursion stack space)
+
+• Tabulation
+    - 1 declare dp array
+      2 start from base case as initialisation 
+      3 loop and update dp           
+    - TC -> O(n)
+    - SC -> O(n) (Dp array only)
+
+• Space Optimizastion
+    - remove dp array by using variables only
+    - whenever we have something like [index-1] or [index-2] we can always do Space Optimizastion
+
+• DP on grids:
+    - Count paths
+    - Count paths with obstacles
+    - Min path sum
+    - Max path sum
+    - Triangle
+    - 2 Start points
